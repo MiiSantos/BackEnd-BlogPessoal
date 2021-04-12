@@ -1,4 +1,4 @@
-package org.generation.blogPessoal.security;
+package org.generation.blogPessoal.seguranca;
 
 import java.util.Collection;
 
@@ -6,19 +6,19 @@ import org.generation.blogPessoal.model.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserDetailsImp implements UserDetails{
-
+public class UserDetailsImpl implements UserDetails {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private String userName;
 	private String password;
 	
-	public UserDetailsImp(Usuario user) {
-		this.userName = user.getUser();
+	public UserDetailsImpl(Usuario user) {
+		this.userName = user.getUsuario();
 		this.password = user.getSenha();
 	}
 	
-	public UserDetailsImp() {}
+	public UserDetailsImpl() {}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -54,6 +54,5 @@ public class UserDetailsImp implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-	
-	
+
 }

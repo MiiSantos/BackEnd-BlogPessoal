@@ -1,4 +1,4 @@
-package org.generation.blogPessoal.security;
+package org.generation.blogPessoal.seguranca;
 
 import java.util.Optional;
 
@@ -11,16 +11,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsServiceImp implements UserDetailsService {
-	
+public class UserDetailsServiceImpl implements UserDetailsService {
+
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioRepository userRepository;
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-		Optional<Usuario> user = usuarioRepository.findByUsuario(userName);
-		user.orElseThrow(() -> new UsernameNotFoundException(userName + " not found.")); 
+		Optional<Usuario> user = userRepository.findByUsuario(userName);
+		user.orElseThrow(() -> new UsernameNotFoundException(userName + " not found."));
 		
-		return user.map(UserDetailsImp::new).get();
+		return user.map(UserDetailsImpl::new).get();
 	}
 }

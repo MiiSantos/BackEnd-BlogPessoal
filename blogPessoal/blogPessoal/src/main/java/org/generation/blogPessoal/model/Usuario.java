@@ -18,15 +18,12 @@ public class Usuario {
 	private long id;
 	
 	@NotNull
-	@Size(max = 100)
 	private String nome;
 	
 	@NotNull
-	@Size(max = 15)
 	private String usuario;
 	
 	@NotNull
-	@Size(max = 8)
 	private String senha;
 
 	public long getId() {
@@ -45,12 +42,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getUser() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUser(String user) {
-		this.usuario = user;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getSenha() {
@@ -60,5 +57,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	
 	
 }
