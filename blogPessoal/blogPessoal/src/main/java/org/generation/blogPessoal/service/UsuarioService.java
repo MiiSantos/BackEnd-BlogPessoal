@@ -18,6 +18,11 @@ public class UsuarioService {
 	private UsuarioRepository repository;
 	
 	public Usuario CadastrarUsuario(Usuario usuario) {
+		
+		if(repository.findByUsuario(usuario.getUsuario()).isPresent() && usuario.getId() == 0) {
+			return null;
+		} //permitir put de usuario
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		String senhaEncoder = encoder.encode(usuario.getSenha());
@@ -28,6 +33,7 @@ public class UsuarioService {
 	
 	public Optional<UserLogin> Logar(Optional<UserLogin> user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		
 		Optional<Usuario> usuario = repository.findByUsuario(user.get().getUsuario());
 		
 		if(usuario.isPresent()) {
@@ -39,6 +45,9 @@ public class UsuarioService {
 				
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
+				user.get().setFoto(usuario.get().getFoto());
+				user.get().setTipo(usuario.get().getTipo());
+				user.get().setId(usuario.get().getId());
 				
 				return user;
 			}
