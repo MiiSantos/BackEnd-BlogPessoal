@@ -1,4 +1,5 @@
 package org.generation.blogPessoal.seguranca;
+import org.springframework.http.HttpMethod;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -30,6 +32,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+		.antMatchers("/**").permitAll() 
 		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll()
 		.anyRequest().authenticated()
