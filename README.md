@@ -1,8 +1,10 @@
 # Blog-Pessoal 💎
-Blog pessoal desenvolvido durante o curso fullstack da Generatin Brasil.
+Blog pessoal desenvolvido durante o curso Dev Java da Generatin Brasil.
 
-## Em desenvolvimento ⚠️🛠️
-  
-  
+## Descrição
+Esse repositório contém o projeto de api de um blog pessoal, que contém as seguintes funcionalidades:
+- Cadastro de usuário
+- Login de de usuário
+- Cadastro de tema
+- Cadastro de postagem
  
- <img src= https://computerworld.com.br/wp-content/uploads/2020/12/9-conte%C3%BAdos-para-quem-quer-se-familiarizar-com-a-%C3%A1rea-de-programa%C3%A7%C3%A3o-e-desenvolvimento.jpg>
